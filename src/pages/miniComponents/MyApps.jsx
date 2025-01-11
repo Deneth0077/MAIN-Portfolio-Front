@@ -216,7 +216,7 @@ const MyApps = () => {
 
   return (
     <div className="flex flex-col w-full gap-8 sm:gap-12">
-      <div className="flex  flex-cols-2 w-2/5 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="flex  flex-cols-1 w-2/5 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {apps &&
           apps.map((element) => {
             return (

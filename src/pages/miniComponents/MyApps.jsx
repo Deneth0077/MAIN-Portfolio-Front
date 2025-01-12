@@ -1,7 +1,15 @@
 import { Card } from "@/components/ui/card";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Modal, IconButton, Box, Fade, Backdrop, Zoom, Typography } from "@mui/material";
+import {
+  Modal,
+  IconButton,
+  Box,
+  Fade,
+  Backdrop,
+  Zoom,
+  Typography,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
@@ -27,7 +35,7 @@ const Certificate = ({ ImgSertif }) => {
           borderRadius: 2,
           boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        
+
           "&:hover": {
             transform: "translateY(-5px)",
             boxShadow: "0 12px 24px rgba(0,0,0,0.2)",
@@ -42,10 +50,11 @@ const Certificate = ({ ImgSertif }) => {
               filter: "contrast(1.05) brightness(1) saturate(1.1)",
             },
           },
-        }}>
+        }}
+      >
         {/* Certificate Image with Initial Filter */}
         <Box
-        className="w-30 "
+          className="w-30 "
           sx={{
             position: "relative",
             "&::before": {
@@ -58,7 +67,8 @@ const Certificate = ({ ImgSertif }) => {
               backgroundColor: "rgba(0, 0, 0, 0.1)",
               zIndex: 1,
             },
-          }}>
+          }}
+        >
           <img
             className="certificate-image"
             src={ImgSertif}
@@ -89,7 +99,8 @@ const Certificate = ({ ImgSertif }) => {
             cursor: "pointer",
             zIndex: 2,
           }}
-          onClick={handleOpen}>
+          onClick={handleOpen}
+        >
           {/* Hover Content */}
           <Box
             className="hover-content"
@@ -103,7 +114,8 @@ const Certificate = ({ ImgSertif }) => {
               textAlign: "center",
               width: "100%",
               color: "white",
-            }}>
+            }}
+          >
             <FullscreenIcon
               sx={{
                 fontSize: 40,
@@ -116,7 +128,8 @@ const Certificate = ({ ImgSertif }) => {
               sx={{
                 fontWeight: 600,
                 textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-              }}>
+              }}
+            >
               View Certificate
             </Typography>
           </Box>
@@ -146,8 +159,8 @@ const Certificate = ({ ImgSertif }) => {
           "& .MuiBackdrop-root": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
           },
-        }}>
-
+        }}
+      >
         <Box
           sx={{
             position: "relative",
@@ -160,7 +173,8 @@ const Certificate = ({ ImgSertif }) => {
             "&:focus": {
               outline: "none",
             },
-          }}>
+          }}
+        >
           {/* Close Button */}
           <IconButton
             onClick={handleClose}
@@ -177,7 +191,8 @@ const Certificate = ({ ImgSertif }) => {
                 transform: "scale(1.1)",
               },
             }}
-            size="large">
+            size="large"
+          >
             <CloseIcon sx={{ fontSize: 24 }} />
           </IconButton>
 
@@ -205,7 +220,7 @@ const MyApps = () => {
   useEffect(() => {
     const getMyApps = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/softwareapplication/getall",
+        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/softwareapplication/getall",
         { withCredentials: true }
       );
       setApps(data.softwareApplications);
@@ -220,7 +235,10 @@ const MyApps = () => {
         {apps &&
           apps.map((element) => {
             return (
-              <Card className="flex flex-col items-center justify-center gap-3 h-fit p-2" key={element._id}>
+              <Card
+                className="flex flex-col items-center justify-center gap-3 h-fit p-2"
+                key={element._id}
+              >
                 <Certificate ImgSertif={element.svg && element.svg.url} />
                 <p className="text-center text-muted-foreground">
                   {element.name}

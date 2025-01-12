@@ -20,9 +20,12 @@ const ProjectView = () => {
   useEffect(() => {
     const getProject = async () => {
       await axios
-        .get(`http://localhost:4000/api/v1/project/get/${id}`, {
-          withCredentials: true,
-        })
+        .get(
+          `https://portfolio-main-lemon-gamma.vercel.app/api/v1/project/get/${id}`,
+          {
+            withCredentials: true,
+          }
+        )
         .then((res) => {
           setTitle(res.data.project.title);
           setDescription(res.data.project.description);
@@ -94,7 +97,10 @@ const ProjectView = () => {
               {/* Project Description */}
               <div className="prose prose-invert max-w-none">
                 {descriptionList.map((item, index) => (
-                  <p key={index} className="text-base leading-relaxed md:text-lg text-gray-300/90">
+                  <p
+                    key={index}
+                    className="text-base leading-relaxed md:text-lg text-gray-300/90"
+                  >
                     {item}
                   </p>
                 ))}
@@ -108,7 +114,10 @@ const ProjectView = () => {
                 </h3>
                 <div className="flex flex-wrap gap-2 md:gap-3">
                   {technologiesList.map((tech, index) => (
-                    <div key={index} className="px-3 py-1 text-sm text-blue-300 bg-blue-500/10 rounded-full md:text-base">
+                    <div
+                      key={index}
+                      className="px-3 py-1 text-sm text-blue-300 bg-blue-500/10 rounded-full md:text-base"
+                    >
                       {tech}
                     </div>
                   ))}
@@ -117,13 +126,17 @@ const ProjectView = () => {
 
               {/* Stack */}
               <div className="space-y-4 md:space-y-6">
-                <h3 className="text-lg md:text-xl font-semibold text-white/90">Stack</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-white/90">
+                  Stack
+                </h3>
                 <p className="text-gray-300/90">{stack}</p>
               </div>
 
               {/* Deployed */}
               <div className="space-y-4 md:space-y-6">
-                <h3 className="text-lg md:text-xl font-semibold text-white/90">Deployed</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-white/90">
+                  Deployed
+                </h3>
                 <p className="text-gray-300/90">{deployed}</p>
               </div>
 

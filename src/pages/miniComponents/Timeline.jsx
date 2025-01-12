@@ -6,7 +6,7 @@ const Timeline = () => {
   useEffect(() => {
     const getMyTimeline = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/timeline/getall",
+        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/timeline/getall",
         { withCredentials: true }
       );
       setTimeline(data.timelines);
@@ -15,7 +15,9 @@ const Timeline = () => {
   }, []);
   return (
     <div>
-    <h1 className="overflow-x-hidden text-[2rem] sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.8rem] mb-4 font-extrabold">Timeline</h1>
+      <h1 className="overflow-x-hidden text-[2rem] sm:text-[1.75rem] md:text-[2.2rem] lg:text-[2.8rem] mb-4 font-extrabold">
+        Timeline
+      </h1>
       <ol className="relative border-gray-200 border-s dark:border-gray-700">
         {timeline &&
           timeline.map((element) => {
@@ -36,7 +38,8 @@ const Timeline = () => {
                   {element.title}
                 </h3>
                 <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  {element.timeline.from} - {element.timeline.to ? element.timeline.to : "Present"}
+                  {element.timeline.from} -{" "}
+                  {element.timeline.to ? element.timeline.to : "Present"}
                 </time>
                 <p className="text-base font-normal text-gray-500 dark:text-gray-400">
                   {element.description}

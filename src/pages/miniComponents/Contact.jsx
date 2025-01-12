@@ -35,12 +35,12 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     Swal.fire({
-      title: 'Sending Message...',
-      html: 'Please wait while we send your message',
+      title: "Sending Message...",
+      html: "Please wait while we send your message",
       allowOutsideClick: false,
       didOpen: () => {
         Swal.showLoading();
-      }
+      },
     });
 
     try {
@@ -48,7 +48,7 @@ const ContactPage = () => {
 
       // Send the message using the API
       const response = await axios.post(
-        "http://localhost:4000/api/v1/message/send",
+        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/message/send",
         { senderName: name, subject: email, message },
         {
           withCredentials: true,
@@ -58,12 +58,12 @@ const ContactPage = () => {
 
       // Show success message
       Swal.fire({
-        title: 'Success!',
+        title: "Success!",
         text: response.data.message,
-        icon: 'success',
-        confirmButtonColor: '#6366f1',
+        icon: "success",
+        confirmButtonColor: "#6366f1",
         timer: 2000,
-        timerProgressBar: true
+        timerProgressBar: true,
       });
 
       // Reset form
@@ -74,10 +74,12 @@ const ContactPage = () => {
       });
     } catch (error) {
       Swal.fire({
-        title: 'Error!',
-        text: error.response?.data?.message || 'Something went wrong. Please try again later.',
-        icon: 'error',
-        confirmButtonColor: '#6366f1'
+        title: "Error!",
+        text:
+          error.response?.data?.message ||
+          "Something went wrong. Please try again later.",
+        icon: "error",
+        confirmButtonColor: "#6366f1",
       });
     } finally {
       setIsSubmitting(false);
@@ -195,7 +197,7 @@ const ContactPage = () => {
                 className="w-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#6366f1]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 <Send className="w-5 h-5" />
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
 

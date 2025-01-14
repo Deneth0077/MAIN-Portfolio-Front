@@ -234,7 +234,7 @@ const Komentar = () => {
         if (imageFile) formData.append("profileImage", imageFile);
 
         await axios.post(
-          "https://portfolio-main-lemon-gamma.vercel.app/api/v1/message/send",
+          "https://backend-folio-ten.vercel.app/api/v1/message/send",
           formData,
           {
             withCredentials: true,

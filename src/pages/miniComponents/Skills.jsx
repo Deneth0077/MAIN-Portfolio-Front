@@ -7,7 +7,7 @@ const Skills = () => {
   useEffect(() => {
     const getMySkills = async () => {
       const { data } = await axios.get(
-        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/skill/getall",
+        "https://backend-folio-ten.vercel.app/api/v1/skill/getall",
         { withCredentials: true }
       );
       setSkills(data.skills);

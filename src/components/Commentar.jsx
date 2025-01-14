@@ -211,7 +211,7 @@ const Komentar = () => {
   const fetchComments = async () => {
     try {
       const response = await axios.get(
-        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/message/get",
+        "https://backend-folio-ten.vercel.app/api/v1/message/get",
         { withCredentials: true }
       );
       setComments(response.data.messages);

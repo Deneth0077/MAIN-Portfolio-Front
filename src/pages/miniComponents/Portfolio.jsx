@@ -110,7 +110,7 @@ const Portfolio = () => {
   useEffect(() => {
     const getMyProjects = async () => {
       const { data } = await axios.get(
-        "https://portfolio-main-lemon-gamma.vercel.app/api/v1/project/getall",
+        "http://localhost:4000/api/v1/project/getall",
         { withCredentials: true }
       );
       setProjects(data.projects);

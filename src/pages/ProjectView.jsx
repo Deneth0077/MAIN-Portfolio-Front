@@ -21,7 +21,7 @@ const ProjectView = () => {
     const getProject = async () => {
       await axios
         .get(
-          `https://portfolio-main-lemon-gamma.vercel.app/api/v1/project/get/${id}`,
+          `https://backend-folio-ten.vercel.app/api/v1/project/get/${id}`,
           {
             withCredentials: true,
           }
